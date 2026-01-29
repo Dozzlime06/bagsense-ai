@@ -1,0 +1,37 @@
+What you think about this? BnZnZe7dr59r9PrUZnwdhC9fEkD6UHnsZZur7xkyBAGS
+BnZnZe7dr59r9PrUZnwdhC9fEkD6UHnsZZur7xkyBAGS (“BnZnZe7d…BAGS”) — here’s what jumps out from the data you dropped.
+
+### What I’m seeing
+- **Creator:** `CryptoAndre7 (twitter)`  
+- **Creator wallet:** `Expoo3…v7qZ`
+- **Royalty:** **0%** (creator earns *nothing* on ongoing volume)
+- **Fee split:** **100%** of fees going to **another wallet**: `hazae41`
+- **Lifetime fees:** **35.7487 SOL** (so it’s seen real trading/volume)
+
+### My take (keep it 100)
+- **0% royalty is a big yellow flag for “builder alignment.”** On bags, the whole meta is creators taking that **1% forever**. If they set it to **0**, they’ve got way less incentive to support it long-term (unless they’re doing some “community token” narrative… which is often cope).
+- **The fee split is the sketchiest part:** creator is “CryptoAndre7” but **all fees go to `hazae41`**. That can be legit (team wallet, manager, collab) but it’s also a classic “front-facing creator / back-pocket wallet” setup. If `hazae41` is not publicly tied to Andre, assume misalignment until proven otherwise.
+- **35.7 SOL lifetime fees = people have been aping.** Not a dead coin. But high fees also means **the fee recipient has already farmed a decent bag**, and could be less motivated to keep it alive.
+
+### What I’d check before touching it (DYOR checklist)
+- Is **`hazae41`** doxxed/linked anywhere by the creator? (bio, pinned tweet, bags profile)
+- Does `hazae41` have a history of **dumping fee streams** / hopping launches?
+- Holder/whale concentration + any big wallet that’s been **selling into pumps**.
+
+### Missing from your data
+- **Price / market cap** isn’t shown here, so I can’t comment on entry levels or “extended vs early” vibes.
+
+Net: this isn’t an auto-rug from this alone, but **the incentive structure is weird**: creator earns **0**, mystery wallet earns **100%**. That’s a “proceed like a degen, not like an investor” setup. NFA.
+Should i buy?
+Can’t tell you to buy/sell, NFA.
+
+But if you’re asking “is this a clean ape?” — **it’s not clean**:
+- **0% royalty** = creator has basically **no long-term incentive**
+- **100% fees to a different wallet (`hazae41`)** = could be legit, could be “who’s really in control?” vibes
+
+If you still wanna play it like a degen, at least do this first:
+1) Verify `hazae41` is publicly tied to the creator/team (not just “trust me bro”).  
+2) Check top holders/whales + recent sells (if one wallet is nuking every pump, you’re exit liquidity).  
+3) Decide your risk plan: small size, know your invalidation, take profits on spikes (don’t diamond-hand a sketchy fee setup).
+
+If you drop the **bags.fm link** or a screenshot of holders/trades, I’ll sanity-check the whale/rug risk tighter.
