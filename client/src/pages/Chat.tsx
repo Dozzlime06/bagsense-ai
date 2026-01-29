@@ -1,12 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import { usePrivy } from "@privy-io/react-auth";
 import { BagSenseLogo } from "@/components/BagSenseLogo";
 import { ChatMessage } from "@/components/ChatMessage";
 import { ChatInput } from "@/components/ChatInput";
 import { WelcomeScreen } from "@/components/WelcomeScreen";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { Trash2, Star, TrendingUp, LogOut, Loader2, Mail } from "lucide-react";
+import { Trash2, Star, TrendingUp } from "lucide-react";
 
 interface Message {
   id: string;
@@ -25,7 +24,6 @@ const STORAGE_KEY = "bagsense_messages";
 const WATCHLIST_KEY = "bagsense_watchlist";
 
 export default function Chat() {
-  const { ready, authenticated, login, logout } = usePrivy();
   const [messages, setMessages] = useState<Message[]>(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     return saved ? JSON.parse(saved) : [];
@@ -58,11 +56,6 @@ export default function Chat() {
   };
 
   const handleSend = async (content: string) => {
-    if (!authenticated) {
-      login();
-      return;
-    }
-
     const userMessage: Message = {
       id: `user-${Date.now()}`,
       role: "user",
@@ -153,20 +146,12 @@ export default function Chat() {
 
   const hasMessages = messages.length > 0 || isStreaming;
 
-  if (!ready) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    );
-  }
-
   return (
     <div className="flex flex-col h-screen bg-background">
       <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 border-b border-border bg-background/80 backdrop-blur-xl" data-testid="header">
         <BagSenseLogo size="sm" />
         <div className="flex items-center gap-2">
-          {authenticated && watchlist.length > 0 && (
+          {watchlist.length > 0 && (
             <Button
               size="sm"
               variant="ghost"
@@ -178,19 +163,17 @@ export default function Chat() {
               <span className="hidden sm:inline">{watchlist.length} Watching</span>
             </Button>
           )}
-          {authenticated && (
-            <Button
-              size="sm"
-              variant="ghost"
-              className="gap-1.5"
-              onClick={() => handleSend("What's trending right now?")}
-              data-testid="button-trending"
-            >
-              <TrendingUp className="h-4 w-4" />
-              <span className="hidden sm:inline">Trending</span>
-            </Button>
-          )}
-          {authenticated && messages.length > 0 && (
+          <Button
+            size="sm"
+            variant="ghost"
+            className="gap-1.5"
+            onClick={() => handleSend("What's trending right now?")}
+            data-testid="button-trending"
+          >
+            <TrendingUp className="h-4 w-4" />
+            <span className="hidden sm:inline">Trending</span>
+          </Button>
+          {messages.length > 0 && (
             <Button
               size="icon"
               variant="ghost"
@@ -198,27 +181,6 @@ export default function Chat() {
               data-testid="button-clear-chat"
             >
               <Trash2 className="h-4 w-4" />
-            </Button>
-          )}
-          {authenticated ? (
-            <Button
-              size="icon"
-              variant="ghost"
-              onClick={logout}
-              data-testid="button-logout"
-            >
-              <LogOut className="h-4 w-4" />
-            </Button>
-          ) : (
-            <Button
-              size="sm"
-              variant="default"
-              className="gap-1.5"
-              onClick={login}
-              data-testid="button-login"
-            >
-              <Mail className="h-4 w-4" />
-              <span>Sign In</span>
             </Button>
           )}
         </div>
@@ -263,7 +225,7 @@ export default function Chat() {
           <ChatInput
             onSend={handleSend}
             disabled={isStreaming}
-            placeholder={authenticated ? "Paste a token address or ask about trends..." : "Sign in to start chatting..."}
+            placeholder="Paste a token address or ask about trends..."
           />
           <p className="text-[10px] text-muted-foreground text-center mt-2">
             BagSense AI can make mistakes. Verify important info.
