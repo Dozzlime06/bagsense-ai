@@ -240,9 +240,10 @@ function formatTokenAnalysis(tokenMint: string, creators: TokenCreator[] | null,
 
   if (metadata?.name || metadata?.symbol) {
     analysis += `**${metadata.name || "Unknown Token"}** (${metadata.symbol || "???"})\n`;
-    analysis += `Mint: ${tokenMint.slice(0, 8)}...${tokenMint.slice(-4)}\n\n`;
+    analysis += `**CA:** \`${tokenMint}\`\n\n`;
   } else {
-    analysis += `**Token Analysis: ${tokenMint.slice(0, 8)}...${tokenMint.slice(-4)}**\n\n`;
+    analysis += `**Token Analysis**\n`;
+    analysis += `**CA:** \`${tokenMint}\`\n\n`;
   }
 
   if (metadata?.price !== null && metadata?.price !== undefined) {
