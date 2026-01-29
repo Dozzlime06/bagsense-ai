@@ -279,9 +279,10 @@ export function formatTokenAnalysis(
   // Token header with name and symbol
   if (metadata?.name || metadata?.symbol) {
     analysis += `**${metadata.name || "Unknown Token"}** (${metadata.symbol || "???"})\n`;
-    analysis += `Mint: ${tokenMint.slice(0, 8)}...${tokenMint.slice(-4)}\n\n`;
+    analysis += `**CA:** \`${tokenMint}\`\n\n`;
   } else {
-    analysis += `**Token Analysis: ${tokenMint.slice(0, 8)}...${tokenMint.slice(-4)}**\n\n`;
+    analysis += `**Token Analysis**\n`;
+    analysis += `**CA:** \`${tokenMint}\`\n\n`;
   }
 
   // Price and market info
