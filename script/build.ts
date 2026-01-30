@@ -3,7 +3,6 @@ import { build as viteBuild } from "vite";
 import { rm, readFile } from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
-import react from '@vitejs/plugin-react';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -45,23 +44,9 @@ async function buildAll() {
   console.log("building client...");
   await viteBuild({
     root: path.resolve(__dirname, "../client"),
-    plugins: [react()],
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, "../client/src"),
-      },
-    },
     build: {
       outDir: path.resolve(__dirname, "../dist/public"),
-      emptyOutDir: true,
-      assetsDir: 'assets',
-      cssCodeSplit: true,
-      minify: 'esbuild',
-      rollupOptions: {
-        output: {
-          manualChunks: undefined,
-        },
-      },
+      emptyOutDir: false,
     },
   });
 
