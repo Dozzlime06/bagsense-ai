@@ -54,6 +54,14 @@ async function buildAll() {
     build: {
       outDir: path.resolve(__dirname, "../dist/public"),
       emptyOutDir: true,
+      assetsDir: 'assets',
+      cssCodeSplit: true,
+      minify: 'esbuild',
+      rollupOptions: {
+        output: {
+          manualChunks: undefined,
+        },
+      },
     },
   });
 
